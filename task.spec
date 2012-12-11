@@ -1,14 +1,14 @@
 Name:           task
-Version:        1.9.4
-Release:        %mkrel 1
+Version:        2.1.2
+Release:        1
 Summary:        A command-line to do list manager
 
 Group:          Office
 License:        GPLv2+
 URL:            http://taskwarrior.org
 Source0:        http://taskwarrior.org/download/%{name}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
+buildrequires:  cmake
 
 %description
 Task is a command-line to do list manager. It has
@@ -23,18 +23,14 @@ options, multi-user file locking, recurring tasks.
 
 
 %build
-%configure2_5x
+%cmake
 %make
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%makeinstall_std -C build
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d
-install -m 644 -T scripts/bash/task_completion.sh $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d/task
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+install -m 644 -T scripts/bash/task.sh $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d/task
 
 
 %files
@@ -49,4 +45,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man5/task-sync.5.*
 %config(noreplace) %{_sysconfdir}/bash_completion.d
 
+
+
+
+%changelog
+* Fri Jul 22 2011 Götz Waschk <waschk@mandriva.org> 1.9.4-1mdv2012.0
++ Revision: 690916
+- import task
 
