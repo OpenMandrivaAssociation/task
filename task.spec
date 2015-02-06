@@ -1,6 +1,6 @@
 Name:           task
 Version:        2.1.2
-Release:        1
+Release:        2
 Summary:        A command-line to do list manager
 
 Group:          Office
