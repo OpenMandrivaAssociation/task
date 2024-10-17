@@ -5,7 +5,7 @@ Summary:        A command-line to do list manager
 
 Group:          Office
 License:        GPLv2+
-URL:            http://taskwarrior.org
+URL:            https://taskwarrior.org
 Source0:        http://taskwarrior.org/download/%{name}-%{version}.tar.gz
 
 buildrequires:  cmake
